@@ -1,0 +1,6 @@
+{
+  "name": "Évasion Voyages",
+  "description": "Portail grand public et espace d'administration pour l'agence Évasion Voyages : recherche, consultation, réservation de packages touristiques et gestion des offres.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

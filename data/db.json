@@ -1,0 +1,424 @@
+{
+  "packages": [
+    {
+      "id": "istanbul-7j",
+      "title": "Séjour Istanbul Impérial",
+      "description": "Une immersion inoubliable de 7 jours au départ d'Alger entre l'Europe et l'Asie. Découvrez la majestueuse Sainte-Sophie, le Grand Bazar, et naviguez sur le Bosphore tout en profitant du confort d'un hôtel 4 étoiles idéalement situé au cœur de la ville historique.",
+      "destination": "Istanbul, Turquie",
+      "durationDays": 7,
+      "price": 178000,
+      "promoPrice": 158000,
+      "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1000&auto=format&fit=crop&q=80",
+      "spotsAvailable": 11,
+      "spotsMax": 20,
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-19",
+      "inclusions": [
+        "Vol Aller/Retour régulier depuis Alger (Air Algérie / Turkish Airlines, taxes incluses)",
+        "Hôtel 4 étoiles de charme près de Sultanahmet",
+        "Formule petit-déjeuner buffet quotidien",
+        "Transferts climatisés Aéroport-Hôtel-Aéroport",
+        "Guide francophone professionnel certifié",
+        "Assistance locale disponible 24h/24"
+      ],
+      "exclusions": [
+        "Repas du midi et du soir",
+        "Boissons et dépenses d'ordre personnel",
+        "Assurance voyage voyageur multirisque",
+        "Frais de visas si applicables"
+      ],
+      "schedule": [
+        {
+          "day": 1,
+          "title": "Arrivée à Istanbul",
+          "desc": "Accueil chaleureux à l'aéroport d'Istanbul et transfert privé vers votre hôtel d'exception. Cocktail de bienvenue et soirée libre pour prendre vos marques."
+        },
+        {
+          "day": 2,
+          "title": "Les Joyaux Historiques",
+          "desc": "Visite guidée de la Mosquée Bleue, de la grandiose Sainte-Sophie et de l'Hippodrome romain. Déjeuner libre dans le quartier pittoresque."
+        },
+        {
+          "day": 3,
+          "title": "Palais de Topkapi et Grand Bazar",
+          "desc": "Exploration du somptueux Palais de Topkapi, demeure des sultans ottomans. L'après-midi est dédié à la flânerie dans le mythique et coloré Grand Bazar."
+        },
+        {
+          "day": 4,
+          "title": "Croisière sur le Bosphore",
+          "desc": "Embarquez pour une croisière privée sur le Bosphore. Admirez les palais de marbre, les villas ottomanes en bois (Yalı) et profitez d'un panorama magique."
+        },
+        {
+          "day": 5,
+          "title": "Bazar Égyptien et Istiklal",
+          "desc": "Parcours sensoriel au marché aux épices (Bazar Égyptien). Traversée du quartier historique de Galata jusqu'à la trépidante avenue piétonne Istiklal."
+        },
+        {
+          "day": 6,
+          "title": "Journée libre ou Visite Optionnelle",
+          "desc": "Profitez de cette journée pour faire du shopping, visiter les îles des Princes ou vivre l'expérience authentique d'un Hammam historique."
+        },
+        {
+          "day": 7,
+          "title": "Derniers souvenirs et Départ",
+          "desc": "Temps libre pour vos derniers achats de délices turcs. Départ de l'hôtel et transfert privé vers l'aéroport d'Istanbul pour le vol retour vers Alger."
+        }
+      ],
+      "status": "active",
+      "rating": 4.8,
+      "category": "Culture"
+    },
+    {
+      "id": "bali-escape-10j",
+      "title": "Paradis Tropical de Bali",
+      "description": "Une escapade magique de 10 jours au départ d'Alger combinant l'animation balnéaire de Seminyak et la sérénité spirituelle d'Ubud. Dormez dans des villas privées dotées de piscines, assistez à des danses balinaises et purifiez-vous dans les sources sacrées.",
+      "destination": "Bali, Indonésie",
+      "durationDays": 10,
+      "price": 318000,
+      "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1000&auto=format&fit=crop&q=80",
+      "spotsAvailable": 8,
+      "spotsMax": 12,
+      "startDate": "2026-10-05",
+      "endDate": "2026-10-15",
+      "inclusions": [
+        "Vols Internationaux au départ d'Alger avec escale de qualité",
+        "Villa privée de luxe avec piscine individuelle à Ubud (5 nuits)",
+        "Resort 5* face à l'océan à Seminyak (4 nuits)",
+        "Petits-déjeuners gourmands inclus chaque matin",
+        "Massage traditionnel balinais de 1 heure au Spa",
+        "Chauffeur privé attitré pour tous vos déplacements inclus",
+        "Excursions guidées avec entrées aux temples incluses"
+      ],
+      "exclusions": [
+        "Repas non spécifiés (déjeuners et dîners)",
+        "Activités nautiques payantes non listées",
+        "Pourboires pour les chauffeurs et guides locaux",
+        "Boissons alcoolisées"
+      ],
+      "schedule": [
+        {
+          "day": 1,
+          "title": "Arrivée à Denpasar & Transfert Ubud",
+          "desc": "Accueil avec collier de fleurs traditionnel. Conduite directe à votre magnifique villa privée nichée parmi les rizières d'Ubud."
+        },
+        {
+          "day": 2,
+          "title": "Ubud et la forêt des Singes",
+          "desc": "Découverte de la Monkey Forest, du palais royal d'Ubud et flânerie sur le marché d'art d'Ubud. Soirée rythmée par un spectacle de danse Legong."
+        },
+        {
+          "day": 3,
+          "title": "Rizières de Tegallalang & Temple Tirta Empul",
+          "desc": "Randonnée douce au milieu des sublimes rizières en terrasses. Rituel de purification au temple des sources sacrées de Tirta Empul."
+        },
+        {
+          "day": 4,
+          "title": "Mont Batur & Temple Mère de Besakih",
+          "desc": "Route panoramique offrant une vue imprenable sur le Mont volcanique Batur. Visite guidée du majestueux complexe spirituel de Besakih."
+        },
+        {
+          "day": 5,
+          "title": "Atelier Culinaire Balinais",
+          "desc": "Matinée ludique animée par un chef local comprenant la visite du marché local du matin et la confection de plats savoureux balinais pour le déjeuner."
+        },
+        {
+          "day": 6,
+          "title": "Plage de Seminyak",
+          "desc": "Transfert sur la côte sud à Seminyak. Check-in dans votre resort haut de gamme. Détente au bord de l'océan Indien et coucher de soleil doré."
+        },
+        {
+          "day": 7,
+          "title": "Temple d'Uluwatu et Spectacle Kecak",
+          "desc": "Matinée farniente. L'après-midi, visite du temple perché d'Uluwatu face à la falaise. Spectacle de danse rituelle Kecak au coucher du soleil."
+        },
+        {
+          "day": 8,
+          "title": "Temple Tanahlot",
+          "desc": "Escapade vers le célèbre temple marin de Tanah Lot, emblème de sérénité. Après-midi détente pour shopping et cafés branchés à Seminyak."
+        },
+        {
+          "day": 9,
+          "title": "Spa d'exception et Dîner Royal",
+          "desc": "Matinée libre pour vos derniers bains de soleil. Profitez de votre massage balinais d'une heure. En soirée, dîner de fruits de mer sur la plage de Jimbaran."
+        },
+        {
+          "day": 10,
+          "title": "Départ de Bali",
+          "desc": "Profitez de vos derniers moments au bord de la piscine. Transfert privé pour l'aéroport de Denpasar pour votre vol retour vers l'Algérie."
+        }
+      ],
+      "status": "active",
+      "rating": 4.9,
+      "category": "Luxe"
+    },
+    {
+      "id": "tokyo-kyoto-8j",
+      "title": "Merveilles du Japon : Tokyo & Kyoto",
+      "description": "Le voyage de contrastes par excellence au départ d'Alger. Découvrez les gratte-ciels néons de Shinjuku, les temples zen millénaires de Kyoto, et voyagez à bord du Shinkansen ultra-rapide au pied du majestueux Mont Fuji.",
+      "destination": "Kyoto & Tokyo, Japon",
+      "durationDays": 8,
+      "price": 498000,
+      "promoPrice": 458000,
+      "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1000&auto=format&fit=crop&q=80",
+      "spotsAvailable": 4,
+      "spotsMax": 10,
+      "startDate": "2026-11-10",
+      "endDate": "2026-11-18",
+      "inclusions": [
+        "Vols réguliers Aller/Retour depuis Alger",
+        "Hébergement de charme idéalement situé dans les centres",
+        "Billet de train Shinkansen (TGV japonais) Tokyo-Kyoto A/R",
+        "Japan Rail Pass (JR Pass) illimité pour vous déplacer",
+        "Excursion guidée à Nara (Cervidés en liberté)",
+        "Pocket WiFi 4G illimité pour une connexion constante"
+      ],
+      "exclusions": [
+        "Repas de midi et du soir",
+        "Boissons et frais de transport locaux non couverts par le JR Pass",
+        "Dépenses shopping et entrées additionnelles"
+      ],
+      "schedule": [
+        {
+          "day": 1,
+          "title": "Arrivée sous les néons de Tokyo",
+          "desc": "Atterrissage à Haneda/Narita. Accueil et transfert en train Express vers votre hôtel. Soirée d'initiation au quartier électrique de Shinjuku."
+        },
+        {
+          "day": 2,
+          "title": "Tokyo Moderne et Traditionnel",
+          "desc": "Parcours guidé : Temple Senso-ji, quartier d'Asakusa, puis immersion pop-culture à Akihabara. Promenade dans le parc royal Shinjuku Gyoen."
+        },
+        {
+          "day": 3,
+          "title": "Mont Fuji & Meiji-Jingu",
+          "desc": "Visite du grand sanctuaire Meiji Jingu niché dans son immense forêt sacrée. Session shopping insolite à Harajuku et traversée du carrefour géant de Shibuya."
+        },
+        {
+          "day": 4,
+          "title": "Train Shinkansen vers Kyoto",
+          "desc": "Embarquez à bord du célèbre train à grande vitesse Shinkansen. Apercevez le Mont Fuji en route. Arrivée à Kyoto, cité historique des geishas."
+        },
+        {
+          "day": 5,
+          "title": "Temples d'Or et Forêt de Bambous",
+          "desc": "Visite guidée du célèbre Pavillon d'Or Kinkaku-ji. Promenade magique sous la canopée de bambous géants à Arashiyama et traversée de Gion."
+        },
+        {
+          "day": 6,
+          "title": "Les Mille Torii de Fushimi Inari",
+          "desc": "Ascension matinale à travers les milliers de portes vermillon (Torii) du sanctuaire Fushimi Inari. Après-midi flânerie gastronomique au marché Nishiki."
+        },
+        {
+          "day": 7,
+          "title": "Excursion féerique à Nara",
+          "desc": "Visite d'une demi-journée à Nara : Temple Todai-ji abritant le Bouddha de bronze géant, rencontre magique avec les célèbres daims sacrés en liberté."
+        },
+        {
+          "day": 8,
+          "title": "Vol retour vers l'Algérie",
+          "desc": "Transfert de la gare de Kyoto vers l'aéroport d'Osaka pour votre vol de retour vers Alger."
+        }
+      ],
+      "status": "active",
+      "rating": 4.95,
+      "category": "Culture"
+    },
+    {
+      "id": "kenya-safari-6j",
+      "title": "Aventure Safari au Kenya",
+      "description": "6 jours de frissons absolus au départ d'Alger au cœur des plus belles réserves sauvages d'Afrique. Suivez la migration des gnous, observez le Big Five dans son habitat naturel, et passez vos nuits dans des éco-lodges luxueux au bord de la savane.",
+      "destination": "Nairobi & Masai Mara, Kenya",
+      "durationDays": 6,
+      "price": 370000,
+      "image": "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1000&auto=format&fit=crop&q=80",
+      "spotsAvailable": 3,
+      "spotsMax": 8,
+      "startDate": "2026-08-20",
+      "endDate": "2026-08-26",
+      "inclusions": [
+        "Vols réguliers au départ d'Alger inclus",
+        "Nuits en éco-lodge d'exception avec pension complète",
+        "Entrées exclusives à la Réserve Nationale du Masai Mara",
+        "Chauffeur-guide ranger certifié francophone privé",
+        "Safari 4x4 équipé de toits ouvrables pour la photo",
+        "Visite d'un village masaï traditionnel",
+        "Assurance d'évacuation médicale d'urgence Flying Doctors"
+      ],
+      "exclusions": [
+        "Visa kenyan électronique",
+        "Boissons dans les lodges (hors eau minérale en safari)",
+        "Pourboires pour le guide (recommandation standard)",
+        "Dépenses personnelles"
+      ],
+      "schedule": [
+        {
+          "day": 1,
+          "title": "Atterrissage à Nairobi",
+          "desc": "Arrivée et accueil chaleureux par votre ranger guide. Dîner gourmand de bienvenue au célèbre restaurant Carnivore et nuit reposante à Nairobi."
+        },
+        {
+          "day": 2,
+          "title": "Cap vers la Vallée du Rift & Masai Mara",
+          "desc": "Départ en 4x4 vers la spectaculaire Vallée du Rift. Arrivée au lodge du Masai Mara pour le déjeuner, puis premier safari thématique en après-midi."
+        },
+        {
+          "day": 3,
+          "title": "Traque du Big Five au Masai Mara",
+          "desc": "Journée entière de safari de l'aube au crépuscule. Repas pique-nique au milieu de la savane sauvage. Observation des lions, éléphants, léopards et rhinos."
+        },
+        {
+          "day": 4,
+          "title": "Culture Masaï et Grand spectacle de la nature",
+          "desc": "Matinée safari le long de la rivière Mara. Visite enrichissante d'un village masaï authentique où vous découvrirez leurs rituels, danses et coutumes."
+        },
+        {
+          "day": 5,
+          "title": "Lac Naivasha & Safari à vélo",
+          "desc": "Départ pour le paisible Lac Naivasha. Balade en bateau au milieu des hippopotames et des aigles pêcheurs. Randonnée guidée à vélo à Hell's Gate."
+        },
+        {
+          "day": 6,
+          "title": "Retour sur Nairobi & Départ",
+          "desc": "Visite du sanctuaire des Girafes de Langata avec possibilité de les nourrir à la main. Transfert final pour le vol de nuit retour vers Alger."
+        }
+      ],
+      "status": "active",
+      "rating": 4.88,
+      "category": "Aventure"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "book-1",
+      "packageId": "istanbul-7j",
+      "packageTitle": "Séjour Istanbul Impérial",
+      "packageImage": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1000&auto=format&fit=crop&q=80",
+      "packagePrice": 158000,
+      "clientName": "Jean Dupont",
+      "clientEmail": "jean.dupont@email.com",
+      "clientPhone": "+213 555 12 34 56",
+      "passengers": [
+        "Jean Dupont",
+        "Marie Dupont"
+      ],
+      "totalAmount": 316000,
+      "status": "Confirmé",
+      "paymentStatus": "Payé",
+      "paymentMethod": "Virement bancaire",
+      "paymentAmount": 316000,
+      "dateBooked": "2026-06-15T14:30:00.000Z",
+      "specialRequests": "Chambre avec lit bébé s'il vous plaît et vue sur le Bosphore.",
+      "aiCustomization": "### Itinéraire Personnalisé pour Famille (Bébés)\n\n* **Conseils pour les déplacements** : Privilégiez Sultanahmet pour les balades piétonnes, l'hôtel est très bien situé. Le tramway T1 d'Istanbul dispose d'un accès facile pour poussettes.\n* **Activité d'après-midi bébé-friendly** : Détente dans le parc Gülhane à l'ombre des platanes centenaires, idéal pour une sieste au calme.\n* **Hammam adapté** : Certains hammams familiaux proposent des soins légers ou des espaces de repos privatifs propices aux temps de repas calme."
+    },
+    {
+      "id": "book-2",
+      "packageId": "bali-escape-10j",
+      "packageTitle": "Paradis Tropical de Bali",
+      "packagePrice": 318000,
+      "packageImage": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1000&auto=format&fit=crop&q=80",
+      "clientName": "Sarah Martin",
+      "clientEmail": "sarah.m@gmail.com",
+      "clientPhone": "+213 661 89 45 61",
+      "passengers": [
+        "Sarah Martin"
+      ],
+      "totalAmount": 318000,
+      "status": "En attente",
+      "paymentStatus": "Acompte payé",
+      "paymentMethod": "Versement CIB/Poste",
+      "paymentAmount": 100000,
+      "dateBooked": "2026-06-20T09:15:00.000Z",
+      "specialRequests": "Régime végétarien strict pour tous les repas.",
+      "aiCustomization": "### Guide Culinaire Végétarien à Bali\n\n* **Ubud Végétarien** : Bali est le paradis du végétarisme ! Vous trouverez à Ubud (autour du temple et sur Jalan Hanoman) de fantastiques cafés bio comme *Sayuri Healing Food* ou *Clear Cafe*.\n* **Spécialités Locales à tester** : Le **Gado-Gado** (légumes croquants avec sauce aux arachides tiède et tempeh) ou la salade de jacquier vert.\n* **Visite optionnelle** : Un tour sur le marché aux herbes de rizière ou un cours de cuisine dédié à la fermentation végétale balinaise."
+    },
+    {
+      "id": "book-415261",
+      "packageId": "istanbul-7j",
+      "packageTitle": "Séjour Istanbul Impérial",
+      "packageImage": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1000&auto=format&fit=crop&q=80",
+      "packagePrice": 158000,
+      "clientName": "wahab",
+      "clientEmail": "bouhelalabdelouaheb86@gmail.com",
+      "clientPhone": "+213795105150",
+      "passengers": [
+        "wahab"
+      ],
+      "totalAmount": 158000,
+      "status": "En attente",
+      "paymentStatus": "Non payé",
+      "paymentAmount": 0,
+      "dateBooked": "2026-06-26T15:40:15.261Z",
+      "specialRequests": "",
+      "aiCustomization": ""
+    },
+    {
+      "id": "book-588925",
+      "packageId": "kenya-safari-6j",
+      "packageTitle": "Aventure Safari au Kenya",
+      "packageImage": "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1000&auto=format&fit=crop&q=80",
+      "packagePrice": 370000,
+      "clientName": "wahab",
+      "clientEmail": "bouhelalabdelouaheb86@gmail.com",
+      "clientPhone": "0795105150",
+      "passengers": [
+        "wahab"
+      ],
+      "totalAmount": 370000,
+      "status": "En attente",
+      "paymentStatus": "Non payé",
+      "paymentAmount": 0,
+      "dateBooked": "2026-06-26T16:33:08.925Z",
+      "specialRequests": "",
+      "aiCustomization": ""
+    },
+    {
+      "id": "book-966958",
+      "packageId": "tokyo-kyoto-8j",
+      "packageTitle": "Merveilles du Japon : Tokyo & Kyoto",
+      "packageImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1000&auto=format&fit=crop&q=80",
+      "packagePrice": 458000,
+      "clientName": "wahab",
+      "clientEmail": "bouhelalabdelouaheb86@gmail.dz",
+      "clientPhone": "000000000",
+      "passengers": [
+        "wahab"
+      ],
+      "totalAmount": 458000,
+      "status": "En attente",
+      "paymentStatus": "Non payé",
+      "paymentAmount": 0,
+      "dateBooked": "2026-06-26T18:36:06.958Z",
+      "specialRequests": "",
+      "aiCustomization": ""
+    },
+    {
+      "id": "book-230646",
+      "packageId": "tokyo-kyoto-8j",
+      "packageTitle": "Merveilles du Japon : Tokyo & Kyoto",
+      "packageImage": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1000&auto=format&fit=crop&q=80",
+      "packagePrice": 458000,
+      "clientName": "wahab",
+      "clientEmail": "bouhelalabdelouaheb86@gmail.com",
+      "clientPhone": "0555555555",
+      "passengers": [
+        "wahab"
+      ],
+      "totalAmount": 458000,
+      "status": "En attente",
+      "paymentStatus": "Non payé",
+      "paymentAmount": 0,
+      "dateBooked": "2026-06-26T18:40:30.646Z",
+      "specialRequests": "",
+      "aiCustomization": ""
+    }
+  ],
+  "users": [
+    {
+      "id": "user-1782488489158",
+      "email": "bouhelalabdelouaheb86@gmail.com",
+      "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+      "name": "wahab",
+      "phone": "+213795105150"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Outfit", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --color-natural-bg: #f8fafc;
+  --color-natural-olive: #ff5a00;
+  --color-natural-olive-hover: #e04f00;
+  --color-natural-warm: #0071eb;
+  --color-natural-warm-hover: #005ec7;
+  --color-natural-main: #1a2b49;
+  --color-natural-muted: #4e617d;
+  --color-natural-card: #ffffff;
+  --color-natural-border: #e2e8f0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-natural-bg);
+  color: var(--color-natural-main);
+}
+
+h1, h2, h3, .serif, .font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Custom utility colors matching GetYourGuide vibe */
+.bg-natural-bg { background-color: #f8fafc; }
+.bg-natural-card { background-color: #ffffff; }
+.text-natural-main { color: #1a2b49; }
+.text-natural-muted { color: #4e617d; }
+.border-natural-border { border-color: #e2e8f0; }
+
+.bg-natural-olive { background-color: #ff5a00; }
+.bg-natural-olive-hover { background-color: #e04f00; }
+.hover\:bg-natural-olive:hover { background-color: #ff5a00; }
+.hover\:bg-natural-olive-hover:hover { background-color: #e04f00; }
+.text-natural-olive { color: #ff5a00; }
+.border-natural-olive { border-color: #ff5a00; }
+
+.bg-natural-warm { background-color: #0071eb; }
+.bg-natural-warm-hover { background-color: #005ec7; }
+.hover\:bg-natural-warm:hover { background-color: #0071eb; }
+.hover\:bg-natural-warm-hover:hover { background-color: #005ec7; }
+.text-natural-warm { color: #0071eb; }
+.border-natural-warm { border-color: #0071eb; }
