@@ -28,7 +28,7 @@ export default function Contact({ lang }: ContactProps) {
       phoneLabel: "Lignes téléphoniques",
       emailLabel: "Adresses e-mail",
       hoursLabel: "Heures d'ouverture",
-      hoursValue: "Du Samedi au Jeudi : 09:00 - 18:00 (Vendredi : Fermé)",
+      hoursValue: "Du Samedi au Jeudi : 08:30 - 18:00 (Vendredi : Fermé)",
       hoursSub: "Assistance client téléphonique 24h/24 pour les voyageurs en cours de séjour.",
       
       formTitle: "Envoyer un message en direct",
@@ -54,7 +54,7 @@ export default function Contact({ lang }: ContactProps) {
       phoneLabel: "Telephone Hotlines",
       emailLabel: "Corporate Emails",
       hoursLabel: "Working Hours",
-      hoursValue: "Saturday to Thursday: 09:00 AM - 06:00 PM (Friday: Closed)",
+      hoursValue: "Saturday to Thursday: 08:30 AM - 06:00 PM (Friday: Closed)",
       hoursSub: "24/7 priority emergency telephone hotline for ongoing travelers in active destinations.",
       
       formTitle: "Send a Direct Message",
@@ -80,7 +80,7 @@ export default function Contact({ lang }: ContactProps) {
       phoneLabel: "الخطوط الهاتفية المباشرة",
       emailLabel: "عناوين البريد الإلكتروني",
       hoursLabel: "أوقات العمل الرسمية",
-      hoursValue: "من السبت إلى الخميس: 09:00 صباحاً - 06:00 مساءً (الجمعة: مغلق)",
+      hoursValue: "من السبت إلى الخميس: 08:30 صباحاً - 06:00 مساءً (الجمعة: مغلق)",
       hoursSub: "مرافقة وإرشاد هاتفي طوارئ متوفر 24 ساعة طيلة أيام الأسبوع لجميع مسافرينا قيد الرحلات.",
       
       formTitle: "إرسال رسالة مباشرة للمبيعات",
