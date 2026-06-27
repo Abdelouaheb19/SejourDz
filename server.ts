@@ -768,7 +768,7 @@ async function simulateNotifications(booking: any) {
             Séjours DZ est un service proposé par Évasion Voyages.
           </p>
           <p style="font-size: 9px; color: #94a3b8; margin: 0;">
-            Licence État N° 1245/2026 • 24, Rue Didouche Mourad, Alger, Algérie
+            Licence État N° 1245/2026 • Rue Abdelkrim Hamza, Lot B1 RDC, Dely Ibrahim, 16042 Alger, Algérie
           </p>
         </div>
 
