@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Compass, Palmtree, ShieldAlert, User, Briefcase, Globe, Info, Phone, Menu, X } from "lucide-react";
+import { Compass, Palmtree, ShieldAlert, User, Briefcase, Globe, Info, Phone, Menu, X, ChevronDown } from "lucide-react";
 import { translations, Language } from "../translations";
 
 interface NavbarProps {
@@ -13,6 +13,7 @@ interface NavbarProps {
 export default function Navbar({ currentTab, setTab, bookingCount, lang, setLang }: NavbarProps) {
   const t = translations[lang];
   const [isOpen, setIsOpen] = useState(false);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
 
   const handleTabClick = (tab: "catalog" | "client" | "admin" | "about" | "contact") => {
     setTab(tab);
@@ -40,19 +41,68 @@ export default function Navbar({ currentTab, setTab, bookingCount, lang, setLang
 
           {/* RIGHT SIDE: Navigation Links (Desktop) & Menu Trigger (Mobile) */}
           <div className="flex items-center gap-2 sm:gap-4">
-            {/* Lang Dropdown Selector */}
-            <div className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-full px-2.5 py-1.5 relative group">
-              <Globe className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-              <select
-                value={lang}
-                onChange={(e) => setLang(e.target.value as Language)}
-                className="bg-transparent text-[11px] font-extrabold text-slate-700 focus:outline-hidden cursor-pointer accent-[#ff5a00] uppercase"
-                title="Select Language"
+            {/* Elegant Custom Language Selector */}
+            <div className="relative">
+              <button
+                onClick={() => setLangMenuOpen(!langMenuOpen)}
+                className="flex items-center gap-1.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-slate-300 rounded-full px-3 py-1.5 transition-all duration-200 cursor-pointer text-xs font-bold text-slate-700 shadow-2xs select-none"
+                aria-label="Select Language"
               >
-                <option value="fr">🇨🇷 Fr</option>
-                <option value="en">🇬🇧 En</option>
-                <option value="ar">🇩🇿 Ar</option>
-              </select>
+                <span className="text-sm">
+                  {lang === "fr" ? "🇫🇷" : lang === "en" ? "🇬🇧" : "🇩🇿"}
+                </span>
+                <span className="uppercase text-[11px] font-extrabold tracking-wider">
+                  {lang === "fr" ? "FR" : lang === "en" ? "EN" : "AR"}
+                </span>
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-500 transition-transform duration-200 ${langMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {langMenuOpen && (
+                <>
+                  <div 
+                    className="fixed inset-0 z-40 cursor-default" 
+                    onClick={() => setLangMenuOpen(false)} 
+                  />
+                  <div className="absolute right-0 mt-2 w-36 bg-white border border-slate-200 rounded-2xl shadow-lg py-1.5 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <button
+                      onClick={() => {
+                        setLang("fr");
+                        setLangMenuOpen(false);
+                      }}
+                      className={`flex items-center gap-2.5 w-full px-3.5 py-2 text-left text-xs font-semibold hover:bg-slate-50 transition-colors cursor-pointer ${
+                        lang === "fr" ? "text-natural-olive bg-natural-olive/5" : "text-slate-700"
+                      }`}
+                    >
+                      <span className="text-sm">🇫🇷</span>
+                      <span>Français</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setLang("en");
+                        setLangMenuOpen(false);
+                      }}
+                      className={`flex items-center gap-2.5 w-full px-3.5 py-2 text-left text-xs font-semibold hover:bg-slate-50 transition-colors cursor-pointer ${
+                        lang === "en" ? "text-natural-olive bg-natural-olive/5" : "text-slate-700"
+                      }`}
+                    >
+                      <span className="text-sm">🇬🇧</span>
+                      <span>English</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setLang("ar");
+                        setLangMenuOpen(false);
+                      }}
+                      className={`flex items-center gap-2.5 w-full px-3.5 py-2 text-right flex-row-reverse justify-end text-xs font-semibold hover:bg-slate-50 transition-colors cursor-pointer ${
+                        lang === "ar" ? "text-natural-olive bg-natural-olive/5" : "text-slate-700"
+                      }`}
+                    >
+                      <span className="text-sm">🇩🇿</span>
+                      <span>العربية</span>
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Desktop Navigation Links */}
