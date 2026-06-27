@@ -734,14 +734,7 @@ export default function App() {
         <div className="flex justify-center gap-4 text-[10px] text-white/40">
           <span>Plateforme B2C de réservation en temps réel avec IA intégrée sous Gemini.</span>
           <span>•</span>
-          <a 
-            href="/php-database/manage_packages.php" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-natural-warm hover:underline font-bold"
-          >
-            Espace Agent Indépendant (PHP/MySQL) ↗
-          </a>
+ 
         </div>
       </footer>
     </div>
