@@ -422,8 +422,21 @@ switch ($action) {
             $stmt_dec = $pdo->prepare("UPDATE `packages` SET `spotsAvailable` = `spotsAvailable` - ? WHERE `id` = ?");
             $stmt_dec->execute([$travelerCount, $request_data['packageId']]);
 
-            // Simulate sending WhatsApp and email to client
-            error_log("[NOTIFICATION AGENT - PHP] Envoi d'un email de confirmation simulé à " . $request_data['clientEmail']);
+            // Envoi de l'e-mail officiel avec PHPMailer
+            $bookingForEmail = [
+                'id' => $bookingId,
+                'packageId' => $request_data['packageId'],
+                'packageTitle' => $pkg['title'],
+                'clientName' => $request_data['clientName'],
+                'clientEmail' => $request_data['clientEmail'],
+                'clientPhone' => $request_data['clientPhone'],
+                'passengers' => $passengersDecoded,
+                'totalAmount' => (float)$request_data['totalAmount'],
+            ];
+            
+            sendPHPMailerNotification($bookingForEmail);
+
+            // Log de message WhatsApp pour le suivi
             error_log("[NOTIFICATION AGENT - PHP] Envoi d'un message WhatsApp simulé à " . $request_data['clientPhone']);
 
             sendResponse(201, true, "Réservation créée avec succès !", ["id" => $bookingId]);
@@ -604,5 +617,223 @@ function formatJsonField($field_value) {
         return json_encode([$field_value], JSON_UNESCAPED_UNICODE);
     }
     return json_encode([], JSON_UNESCAPED_UNICODE);
+}
+
+/**
+ * Envoie un véritable e-mail de confirmation en utilisant PHPMailer et votre configuration Gmail
+ */
+function sendPHPMailerNotification($booking) {
+    $loaded = false;
+    
+    // Essayer de charger PHPMailer via les chemins les plus probables
+    if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+        require_once __DIR__ . '/vendor/autoload.php';
+        $loaded = true;
+    } elseif (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+        require_once __DIR__ . '/../vendor/autoload.php';
+        $loaded = true;
+    } elseif (file_exists(__DIR__ . '/PHPMailer/src/PHPMailer.php')) {
+        require_once __DIR__ . '/PHPMailer/src/Exception.php';
+        require_once __DIR__ . '/PHPMailer/src/PHPMailer.php';
+        require_once __DIR__ . '/PHPMailer/src/SMTP.php';
+        $loaded = true;
+    } elseif (file_exists(__DIR__ . '/src/PHPMailer.php')) {
+        require_once __DIR__ . '/src/Exception.php';
+        require_once __DIR__ . '/src/PHPMailer.php';
+        require_once __DIR__ . '/src/SMTP.php';
+        $loaded = true;
+    }
+
+    if (!$loaded) {
+        error_log("[PHPMailer] Erreur critique : PHPMailer n'a pas pu être chargé. Assurez-vous d'avoir fait un 'composer require phpmailer/phpmailer' ou copié les fichiers sources dans le projet.");
+        return false;
+    }
+
+    // Charger le fichier d'environnement .env pour récupérer les paramètres Gmail/SMTP
+    $env = [];
+    $env_paths = [__DIR__ . '/../.env', __DIR__ . '/.env'];
+    foreach ($env_paths as $path) {
+        if (file_exists($path)) {
+            $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            foreach ($lines as $line) {
+                if (strpos(trim($line), '#') === 0) continue;
+                if (strpos($line, '=') === false) continue;
+                list($name, $value) = explode('=', $line, 2);
+                $name = trim($name);
+                $value = trim($value, " \t\n\r\0\x0B\"'");
+                $env[$name] = $value;
+            }
+            break;
+        }
+    }
+
+    // Extraction des paramètres de configuration SMTP (depuis $_ENV, getenv() de Cloud Run, ou le fichier .env)
+    $smtp_host = $_ENV['SMTP_HOST'] ?? getenv('SMTP_HOST') ?? $env['SMTP_HOST'] ?? 'smtp.gmail.com';
+    $smtp_port = $_ENV['SMTP_PORT'] ?? getenv('SMTP_PORT') ?? $env['SMTP_PORT'] ?? '465';
+    $smtp_secure = $_ENV['SMTP_SECURE'] ?? getenv('SMTP_SECURE') ?? $env['SMTP_SECURE'] ?? 'true';
+    $smtp_user = $_ENV['SMTP_USER'] ?? getenv('SMTP_USER') ?? $env['SMTP_USER'] ?? '';
+    $smtp_pass = $_ENV['SMTP_PASS'] ?? getenv('SMTP_PASS') ?? $env['SMTP_PASS'] ?? '';
+    $smtp_from = $_ENV['SMTP_FROM'] ?? getenv('SMTP_FROM') ?? $env['SMTP_FROM'] ?? '';
+
+    if (empty($smtp_user) || empty($smtp_pass)) {
+        error_log("[PHPMailer] Erreur : Configuration SMTP incomplète dans .env (SMTP_USER ou SMTP_PASS vide). Envoi d'e-mail annulé.");
+        return false;
+    }
+
+    // Définir l'adresse de l'expéditeur d'affichage
+    $from_email = $smtp_user;
+    $from_name = 'Séjours DZ - Évasion Voyages';
+    if (!empty($smtp_from)) {
+        if (preg_match('/"([^"]+)"\s*<([^>]+)>/', $smtp_from, $matches)) {
+            $from_name = $matches[1];
+            $from_email = $matches[2];
+        } else {
+            $from_email = str_replace(['<', '>'], '', $smtp_from);
+        }
+    }
+
+    // Formatage de la liste des voyageurs
+    $passengers = $booking['passengers'] ?? [];
+    if (is_string($passengers)) {
+        $passengers = json_decode($passengers, true) ?: [];
+    }
+    $passengersList = '';
+    if (is_array($passengers) && count($passengers) > 0) {
+        foreach ($passengers as $p) {
+            $passengersList .= "<li>• " . htmlspecialchars($p) . "</li>";
+        }
+    } else {
+        $passengersList = "<li>• " . htmlspecialchars($booking['clientName']) . "</li>";
+    }
+
+    // Total formaté
+    $totalAmountFormatted = number_format((float)$booking['totalAmount'], 0, ',', ' ') . ' DA';
+
+    // Gabarit de l'email HTML responsive
+    $htmlContent = '
+    <div style="font-family: \'Helvetica Neue\', Helvetica, Arial, sans-serif; background-color: #f8fafc; padding: 40px 20px; color: #1e293b;">
+      <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -4px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+        
+        <!-- Header -->
+        <div style="background-color: #1a2b49; padding: 32px; text-align: center;">
+          <h1 style="color: #ffffff; font-size: 24px; margin: 0; font-weight: 800; letter-spacing: -0.5px;">🇩🇿 Séjours DZ</h1>
+          <p style="color: #ff5a00; font-size: 12px; margin: 4px 0 0 0; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">Évasion Voyages</p>
+        </div>
+
+        <!-- Body Content -->
+        <div style="padding: 40px 32px;">
+          <h2 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-top: 0; margin-bottom: 16px;">Confirmation de Réservation</h2>
+          <p style="font-size: 14px; line-height: 1.6; color: #475569; margin-bottom: 24px;">
+            Bonjour <strong>' . htmlspecialchars($booking['clientName']) . '</strong>,
+          </p>
+          <p style="font-size: 14px; line-height: 1.6; color: #475569; margin-bottom: 24px;">
+            Nous avons le plaisir de vous confirmer l\'enregistrement de votre demande de réservation. Notre équipe est déjà mobilisée pour préparer votre départ.
+          </p>
+
+          <!-- Reservation Card -->
+          <div style="background-color: #f1f5f9; border-radius: 16px; padding: 24px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
+            <div style="font-size: 11px; text-transform: uppercase; font-weight: 800; color: #ff5a00; letter-spacing: 1px; margin-bottom: 8px;">Détails du dossier</div>
+            
+            <table style="width: 100%; font-size: 13px; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 6px 0; color: #64748b;">Référence :</td>
+                <td style="padding: 6px 0; font-family: monospace; font-weight: 700; color: #0f172a; text-align: right;">' . htmlspecialchars($booking['id']) . '</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #64748b;">Séjour :</td>
+                <td style="padding: 6px 0; font-weight: 700; color: #0f172a; text-align: right;">' . htmlspecialchars($booking['packageTitle']) . '</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #64748b;">Date d\'enregistrement :</td>
+                <td style="padding: 6px 0; font-weight: 700; color: #0f172a; text-align: right;">' . date('d/m/Y H:i') . '</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; color: #64748b;">Montant Total :</td>
+                <td style="padding: 6px 0; font-weight: 800; color: #ff5a00; font-size: 15px; text-align: right;">' . $totalAmountFormatted . '</td>
+              </tr>
+            </table>
+
+            <div style="border-top: 1px solid #cbd5e1; margin-top: 12px; padding-top: 12px;">
+              <div style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: #475569; margin-bottom: 6px;">Voyageur(s) inscrit(s) :</div>
+              <ul style="margin: 0; padding-left: 0; list-style-type: none; font-size: 13px; color: #0f172a;">
+                ' . $passengersList . '
+              </ul>
+            </div>
+          </div>
+
+          <!-- Status -->
+          <div style="background-color: #fef3c7; border: 1px solid #fde68a; border-radius: 12px; padding: 12px 16px; margin-bottom: 24px;">
+            <span style="font-size: 16px; margin-right: 8px;">⏳</span>
+            <div style="font-size: 12px; color: #78350f; font-weight: 600; display: inline-block; vertical-align: middle;">
+              Statut actuel : En attente de validation par un conseiller de l\'agence.
+            </div>
+          </div>
+
+          <!-- Next Steps -->
+          <h3 style="font-size: 14px; font-weight: 700; color: #0f172a; margin-top: 24px; margin-bottom: 8px;">Prochaines étapes :</h3>
+          <ol style="font-size: 13px; line-height: 1.6; color: #475569; padding-left: 20px; margin: 0 0 24px 0;">
+            <li style="margin-bottom: 6px;">Un conseiller clientèle Évasion Voyages va vous appeler pour confirmer vos dates et les vols.</li>
+            <li style="margin-bottom: 6px;">Vous pourrez ensuite procéder au versement de l\'acompte pour bloquer définitivement vos places.</li>
+          </ol>
+
+          <!-- Button link (Espace Client) -->
+          <div style="text-align: center; margin-bottom: 16px;">
+            <a href="https://sejours-dz.com" style="display: inline-block; background-color: #1a2b49; color: #ffffff; text-decoration: none; padding: 12px 24px; font-weight: 700; border-radius: 12px; font-size: 14px;">
+              Accéder à mon Espace Client
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div style="background-color: #f1f5f9; padding: 24px 32px; border-top: 1px solid #e2e8f0; text-align: center;">
+          <p style="font-size: 11px; color: #64748b; margin: 0 0 4px 0;">
+            Séjours DZ est un service proposé par Évasion Voyages.
+          </p>
+          <p style="font-size: 9px; color: #94a3b8; margin: 0;">
+            Licence État N° 1245/2026 • Rue Abdelkrim Hamza, Lot B1 RDC, Dely Ibrahim, 16042 Alger, Algérie
+          </p>
+        </div>
+
+      </div>
+    </div>';
+
+    try {
+        $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host       = $smtp_host;
+        $mail->SMTPAuth   = true;
+        $mail->Username   = $smtp_user;
+        $mail->Password   = $smtp_pass;
+        $mail->Port       = intval($smtp_port);
+        
+        // Protocol security
+        if ($smtp_secure === 'true' || $smtp_port == 465) {
+            $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;
+        } else {
+            $mail->SMTPSecure = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+        }
+
+        // UTF-8
+        $mail->CharSet = 'UTF-8';
+
+        // Recipients
+        $mail->setFrom($from_email, $from_name);
+        $mail->addAddress($booking['clientEmail'], $booking['clientName']);
+
+        // Content
+        $mail->isHTML(true);
+        $mail->Subject = "🇩🇿 Confirmation de votre réservation {$booking['id']} - Séjours DZ";
+        $mail->Body    = $htmlContent;
+
+        $mail->send();
+        error_log("[PHPMailer SUCCESS] E-mail officiel envoyé avec succès par l'API PHP à {$booking['clientEmail']}");
+        return true;
+    } catch (\Exception $e) {
+        error_log("[PHPMailer ERROR] Échec de l'envoi de l'e-mail automatique par l'API PHP : {$mail->ErrorInfo}");
+        return false;
+    }
 }
 ?>
