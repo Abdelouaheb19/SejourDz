@@ -775,8 +775,8 @@ export default function ClientSpace({ bookings, onRefreshBookings, onUpdateBooki
                       Veuillez vous présenter à notre agence principale <strong>Séjours DZ</strong> à Alger pour régler le montant de votre voyage en espèces.
                     </p>
                     <div className="p-2 border border-dashed border-natural-border rounded-xl bg-white text-[10px] text-natural-muted">
-                      📍 <strong>Adresse :</strong> Boulevard Didouche Mourad, Alger-Centre<br />
-                      📞 <strong>Tél :</strong> +213 (0) 21 55 55 55
+                      📍 <strong>Adresse :</strong> Rue Abdelkrim Hamza, Lot B1 RDC, Dely Ibrahim, 16042 Alger<br />
+                      📞 <strong>Tél :</strong> +213 (0) 21 65 88 90
                     </div>
                     <p className="text-[10px] text-natural-olive italic pt-1">
                       * Pour simuler l'enregistrement immédiat de ce versement en espèces, cliquez sur le bouton ci-dessous.
