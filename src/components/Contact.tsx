@@ -24,7 +24,7 @@ export default function Contact({ lang }: ContactProps) {
       contactTitle: "Contactez notre Agence",
       contactSubtitle: "Une question ? Un projet de voyage sur-mesure ? Nos conseillers sont à votre écoute.",
       addressLabel: "Adresse de l'agence physique",
-      addressValue: "04, Rue Didouche Mourad, Alger Centre, Algérie",
+      addressValue: "Rue Abdelkrim Hamza, Lot B1 RDC, Dely Ibrahim, 16042 Alger, Algérie",
       phoneLabel: "Lignes téléphoniques",
       emailLabel: "Adresses e-mail",
       hoursLabel: "Heures d'ouverture",
@@ -43,14 +43,14 @@ export default function Contact({ lang }: ContactProps) {
       formSuccessDesc: "Merci pour votre intérêt. Un conseiller voyages de l'agence Séjours DZ vous contactera par téléphone ou par e-mail dans un délai de 2 à 4 heures.",
       formReset: "Envoyer un autre message",
       
-      mapTitle: "Nous situer à Alger Centre",
-      mapDesc: "Situé à quelques pas de la Grande Poste, notre espace physique vous accueille pour finaliser vos dossiers de voyage."
+      mapTitle: "Nous situer à Dely Ibrahim",
+      mapDesc: "Retrouvez-nous à notre agence de Dely Ibrahim pour finaliser votre dossier ou concevoir votre voyage sur-mesure."
     },
     en: {
       contactTitle: "Get in Touch with Us",
       contactSubtitle: "Have questions? Need a tailored group package? Our travel advisors are online.",
       addressLabel: "Physical Headquarters",
-      addressValue: "04, Didouche Mourad Street, Algiers Center, Algeria",
+      addressValue: "Abdelkrim Hamza Street, Lot B1 G.F., Dely Ibrahim, 16042 Algiers, Algeria",
       phoneLabel: "Telephone Hotlines",
       emailLabel: "Corporate Emails",
       hoursLabel: "Working Hours",
@@ -69,14 +69,14 @@ export default function Contact({ lang }: ContactProps) {
       formSuccessDesc: "Thank you for your interest. A dedicated travel representative from Séjours DZ will contact you by phone or email within 2 to 4 hours.",
       formReset: "Send another message",
       
-      mapTitle: "Locate us in Algiers Center",
-      mapDesc: "Conveniently located within a short walking distance from Algiers' iconic 'Grande Poste'."
+      mapTitle: "Locate us in Dely Ibrahim",
+      mapDesc: "Visit our office in Dely Ibrahim to finalize your bookings or design your tailored journey."
     },
     ar: {
       contactTitle: "اتصل بوكالتنا السياحية",
       contactSubtitle: "لديك استفسار ؟ ترغب في رحلة مخصصة لشركتك أو عائلتك ؟ مستشارونا في الخدمة.",
       addressLabel: "العنوان الفعلي لمقر الوكالة",
-      addressValue: "04، شارع ديدوش مراد، الجزائر الوسطى، الجزائر",
+      addressValue: "شارع عبد الكريم حمزة، تجزئة B1 الطابق الأرضي، دالي إبراهيم، 16042 الجزائر",
       phoneLabel: "الخطوط الهاتفية المباشرة",
       emailLabel: "عناوين البريد الإلكتروني",
       hoursLabel: "أوقات العمل الرسمية",
@@ -95,8 +95,8 @@ export default function Contact({ lang }: ContactProps) {
       formSuccessDesc: "شكراً لاهتمامك بوكالتنا. سيقوم أحد مستشاري السفر لدينا بالاتصال بك هاتفياً أو عبر البريد الإلكتروني في غضون ساعتين إلى 4 ساعات كأقصى تقدير.",
       formReset: "إرسال رسالة أخرى",
       
-      mapTitle: "موقعنا في قلب الجزائر الوسطى",
-      mapDesc: "يقع مقرنا على بعد خطوات قليلة من البريد المركزي بوسط العاصمة، نرحب بزيارتكم لإتمام ملفات سفركم."
+      mapTitle: "موقعنا في دالي إبراهيم",
+      mapDesc: "تفضلوا بزيارة مكتبنا في دالي إبراهيم لتأكيد حجوزاتكم أو تصميم برنامج سفركم المخصص."
     }
   };
 
@@ -170,11 +170,11 @@ export default function Contact({ lang }: ContactProps) {
                     <a href="tel:+21321658890" className="text-xs font-bold text-[#0071eb] hover:underline block" dir="ltr">
                       +213 (0) 21 65 88 90 <span className="text-[9px] font-normal text-natural-muted">(Fixe Alger Center)</span>
                     </a>
-                    <a href="tel:+213555123456" className="text-xs font-bold text-[#0071eb] hover:underline block" dir="ltr">
-                      +213 (0) 555 12 34 56 <span className="text-[9px] font-normal text-natural-muted">(Mobile & WhatsApp)</span>
+                    <a href="tel:+213 550 70 44 66" className="text-xs font-bold text-[#0071eb] hover:underline block" dir="ltr">
+                      +213 (0) 550 70 44 66 <span className="text-[9px] font-normal text-natural-muted">(Mobile & WhatsApp)</span>
                     </a>
-                    <a href="tel:+213661778899" className="text-xs font-bold text-[#0071eb] hover:underline block" dir="ltr">
-                      +213 (0) 661 77 88 99 <span className="text-[9px] font-normal text-natural-muted">(Service Client)</span>
+                    <a href="tel:+213791679939" className="text-xs font-bold text-[#0071eb] hover:underline block" dir="ltr">
+                      +213 (0) 791 67 99 39 <span className="text-[9px] font-normal text-natural-muted">(Service Client)</span>
                     </a>
                   </div>
                 </div>
@@ -255,7 +255,7 @@ export default function Contact({ lang }: ContactProps) {
                     <label className="block text-[11px] font-bold text-natural-main mb-1">{t.formPhone}</label>
                     <input
                       type="tel"
-                      placeholder="Ex: +213 555 12 34 56"
+                      placeholder="Ex: +213 550 70 44 66"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full text-xs p-3 rounded-xl border border-natural-border bg-natural-bg/40 focus:outline-hidden focus:ring-2 focus:ring-natural-olive/20 focus:border-natural-olive"
@@ -335,48 +335,18 @@ export default function Contact({ lang }: ContactProps) {
           <p className="text-xs text-natural-muted leading-relaxed">{t.mapDesc}</p>
         </div>
 
-        {/* Styled Graphical Map representation representing Didouche Mourad / Grande Poste Algiers */}
-        <div className="h-64 sm:h-72 w-full bg-slate-50 rounded-2xl border border-natural-border relative overflow-hidden flex flex-col justify-center items-center mt-4">
-          {/* Grid Pattern Background */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:24px_24px] opacity-40 pointer-events-none" />
-          
-          {/* Abstract Roads */}
-          <div className="absolute w-full h-8 bg-slate-200/80 top-12 left-0 transform rotate-1 border-y border-slate-300 flex items-center px-8 text-[9px] font-bold text-slate-400 select-none">
-            RUE ASSELAH HOCINE
-          </div>
-          <div className="absolute w-8 h-full bg-slate-200/80 left-20 top-0 border-x border-slate-300 flex justify-center items-center py-8 text-[9px] font-bold text-slate-400 select-none writing-mode-vertical">
-            RUE LARBI BEN M'HIDI
-          </div>
-          <div className="absolute w-full h-10 bg-natural-olive/5 bottom-20 left-0 border-y border-natural-olive/10 flex items-center px-12 text-[9px] font-bold text-natural-olive/60 select-none">
-            AVENUE DIDOUCHE MOURAD (DIDOUCHE MOURAD)
-          </div>
-          <div className="absolute w-12 h-full bg-slate-200/80 right-28 top-0 border-x border-slate-300 flex justify-center items-center text-[9px] font-bold text-slate-400 select-none">
-            BD KHEMISTI
-          </div>
-
-          {/* Grande Poste Roundabout Graphic */}
-          <div className="absolute w-20 h-20 bg-emerald-50 border-2 border-emerald-200 rounded-full right-24 bottom-14 flex items-center justify-center text-[10px] font-black text-emerald-700 select-none shadow-xs text-center leading-none p-2">
-            Grande Poste / البريد المركزي
-          </div>
-
-          {/* Our Location Pin */}
-          <div className="absolute left-1/3 bottom-24 flex flex-col items-center">
-            <div className="bg-natural-olive text-white px-2.5 py-1.5 rounded-lg text-[9px] font-extrabold shadow-md whitespace-nowrap animate-bounce flex items-center gap-1">
-              <Award className="w-3 h-3 text-white" />
-              <span>Séjours DZ (N°4)</span>
-            </div>
-            <div className="w-3 h-3 bg-natural-olive rounded-full border-2 border-white shadow-sm mt-1" />
-          </div>
-
-          {/* Additional landmark pins */}
-          <div className="absolute left-6 top-6 flex items-center gap-1 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md text-[8px] text-slate-500 font-semibold select-none">
-            <MapPin className="w-2.5 h-2.5" />
-            <span>Faculté d'Alger</span>
-          </div>
-          <div className="absolute right-6 top-24 flex items-center gap-1 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-md text-[8px] text-slate-500 font-semibold select-none">
-            <MapPin className="w-2.5 h-2.5" />
-            <span>Jardin de l'Horloge</span>
-          </div>
+        {/* Real Interactive Google Maps Embed */}
+        <div className="h-96 w-full rounded-2xl border border-natural-border overflow-hidden mt-4 shadow-xs">
+          <iframe
+            title="Google Maps - Séjours DZ"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Rue%20Abdelkrim%20Hamza%20Lot%20B1%20RDC%20Dely%20Ibrahim%2016042%20Alger&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          ></iframe>
         </div>
       </div>
 
