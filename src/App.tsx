@@ -731,11 +731,7 @@ export default function App() {
       <footer className="bg-[#1a2b49] text-white/60 py-12 text-xs text-center border-t border-slate-150/10 space-y-2">
         <p className="font-serif text-sm text-white font-bold mb-1">Séjours DZ</p>
         <p>© 2026 Évasion Voyages S.A.S. • Tous droits réservés.</p>
-        <div className="flex justify-center gap-4 text-[10px] text-white/40">
-          <span>Plateforme B2C de réservation en temps réel avec IA intégrée sous Gemini.</span>
-          <span>•</span>
- 
-        </div>
+     
       </footer>
     </div>
   );
